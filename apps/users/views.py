@@ -101,14 +101,17 @@ class LoginView(View):
         #实例化
         login_form = LoginForm(request.POST)
         if login_form.is_valid():
-
             username = request.POST.get('username')
             password = request.POST.get('password')
 
             user = authenticate(username=username,password=password)
             if user is not None:
-                login(request,user)
-                return render(request,'index.html')
+                if user.is_active:
+                    #只有注册激活才能登录
+                    login(request,user)
+                    return render(request,'index.html')
+                else:
+                    return render(request, 'login.html', {"msg": "用户名或密码错误", "login_form": login_form})
             else:
                 return render(request,'login.html',{"msg":"用户名或密码错误","login_form":login_form})
 
@@ -131,12 +134,13 @@ class RegisterView(View):
         register_form = RegisterForm(request.POST)
         if register_form.is_valid():
             username = request.POST.get("email")
-            if UserProfile.objects.filter(emial=username):
+            if UserProfile.objects.filter(email=username):
                 return render(request,'register.html',{"register_form":register_form,"msg":"用户已存在"})
             password = request.POST.get('password')
             #实例化一个UserProfile对象，存储到数据库
             user = UserProfile()
             user.username = username
+            # 对保存到数据库的密码加密
             user.password = make_password(password)
             user.email = username
             user.is_active = False
@@ -145,5 +149,27 @@ class RegisterView(View):
             #发送激活的邮件,python中有一个SMPT模块，django与之对应的django.core.mail
             send_register_email(username,"register")
             return render(request,'login.html')
+        else:
+            return render(request,'register.html')
 
+
+'''
+    处理激活账户的视图
+'''
+from .models import EmailVerifyRecord
+
+
+class ActiveUserView(View):
+    def get(self,request,active_code):
+
+        #检查邮箱验证记录中数据表中是否存在active_code
+        all_record = EmailVerifyRecord.objects.filter(code=active_code)
+        if all_record:
+            for record in all_record:
+                email = record.email
+                user = UserProfile.objects.get(email=email)
+                user.is_active = True
+                user.save()
+        else:
+            return render(request,'active_fail.html')
         return render(request,'login.html')

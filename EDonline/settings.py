@@ -133,3 +133,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
+
+
+EMAIL_HOST = "smtp.qq.com"
+EMAIL_PORT = "25"
+EMAIL_HOST_USER = "1419517126@qq.com"
+#生成的授权码
+EMAIL_HOST_PASSWORD = "hcuuamtyygumjaee"
+EMAIL_USE_TLS = True
+EMAIL_FROM = "1419517126@qq.com"

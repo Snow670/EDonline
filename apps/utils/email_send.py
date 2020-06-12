@@ -6,16 +6,16 @@ from users.models import EmailVerifyRecord
 # code是一个随机的字符串
 def random_str(random_length=8):
     code = ""
-    str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    str1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     random = Random()
     for i in range(random_length):
-        code += str(random.randint(0, len(str) - 1))
+        code += str1[random.randint(0, len(str1) - 1)]
     return code
 
 
 def send_register_email(email,send_type="register"):
-
     #发送邮件之前，先保存到数据库，以方便查询链接是否存在
+    # 实例化一个EmailVerifyRecord对象
     email_record = EmailVerifyRecord()
     email_record.email = email
     email_record.send_type = send_type
@@ -24,10 +24,11 @@ def send_register_email(email,send_type="register"):
         code = random_str(4)
     else:
         code = random_str(16)
+    # 生成随机的code放入链接
     email_record.code = code
     email_record.save()
 
-    #定义邮件的标题
+    #定义邮件的标题、内容
     email_title = ""
     email_body = ""
 
