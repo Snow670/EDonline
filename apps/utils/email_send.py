@@ -5,11 +5,13 @@ from users.models import EmailVerifyRecord
 
 # code是一个随机的字符串
 def random_str(random_length=8):
-    code = ""
-    str1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    code = ''
+    # 生成字符串的可选字符串
+    chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789'
+    length = len(chars) - 1
     random = Random()
     for i in range(random_length):
-        code += str1[random.randint(0, len(str1) - 1)]
+        code += chars[random.randint(0, length)]
     return code
 
 
@@ -40,7 +42,7 @@ def send_register_email(email,send_type="register"):
             pass
     elif send_type == "forget":
         email_title = "在线教育找回密码链接"
-        email_body = "请点击下面的链接找回你的密码：http://127.0.0.1:8000/reset/{0}".format(code)
+        email_body = "请点击下面的链接找回你的密码: http://127.0.0.1:8000/reset/{0}".format(code)
         send_status = send_mail(email_title, email_body, "1419517126@qq.com", [email])
         if send_status:
             pass
