@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'corsheaders',
-    'captcha'
+    'captcha',
+    'pure_pagination'
 ]
 #自定义的UserProfile
 AUTH_USER_MODEL = 'users.UserProfile'
@@ -70,6 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #添加图片处理器，为了在课程列表中前面加上MEDIA_URL
+                'django.template.context_processors.media'
             ],
         },
     },
@@ -133,6 +136,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 
 EMAIL_HOST = "smtp.qq.com"

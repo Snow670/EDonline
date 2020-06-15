@@ -1,8 +1,13 @@
 from django.urls import path,include,re_path
 import xadmin
+from django.views.static import serve
+from EDonline.settings import MEDIA_ROOT
+
 from django.views.generic import TemplateView
 # from users.views import user_login
 from users.views import LoginView,Logout_view,RegisterView,ActiveUserView,ForgetPwdView,ResetPwdView,ModifyPwdView
+from organization.views import OrgView
+
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
@@ -17,6 +22,11 @@ urlpatterns = [
     path('forget/',ForgetPwdView.as_view(),name='forget'),
     re_path('reset/(?P<active_code>.*)/', ResetPwdView.as_view(), name='reset_pwd'),
     path('modify/', ModifyPwdView.as_view(), name='modify_pwd'),
+
+    # 处理图片显示的url,使用Django自带serve,传入参数告诉它去哪个路径找，我们有配置好的路径MEDIAROOT
+    re_path(r'^media/(?P<path>.*)', serve, {"document_root": MEDIA_ROOT}),
+
+    path('org_list/',OrgView.as_view(),name='org_list'),
 
 
 

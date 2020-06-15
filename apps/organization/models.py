@@ -16,6 +16,11 @@ class CityDict(models.Model):
 
 
 class CourseOrg(models.Model):
+    ORG_CHOICES = (
+        ("pxjg", u"培训机构"),
+        ("gx", u"高校"),
+        ("gr", u"个人"),
+    )
     name = models.CharField('机构名称',max_length=50)
     desc = models.TextField('机构描述')
     click_nums = models.IntegerField('点击数',default=0)
@@ -24,7 +29,7 @@ class CourseOrg(models.Model):
     address = models.CharField('机构地址',max_length=150,)
     city = models.ForeignKey(CityDict,verbose_name='所在城市',on_delete=models.CASCADE)
     add_time = models.DateTimeField(default=datetime.now)
-
+    category = models.CharField(max_length=20, choices=ORG_CHOICES, verbose_name=u"机构类别", default="pxjg")
     class Meta:
         verbose_name = '课程机构'
         verbose_name_plural = verbose_name
