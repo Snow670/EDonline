@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eebb7c99-b2a6-4c7f-ae87-623c06f3e630" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/organization/migrations/0002_courseorg_category.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/organization/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EDonline/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/EDonline/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EDonline/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/EDonline/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/organization/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/course/resource/2016/11/curl_wget.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/course/resource/2016/11/media.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/org/2016/12/bjdx.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/org/2016/12/bjdx_bcd0m07.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/org/2016/12/bjdx_cCpdUw8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/courses/2016/12/57035ff200014b8a06000338-240-135_dHfj8Nq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/courses/2016/12/mysql.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/courses/2016/12/python文件处理.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/courses/2016/12/python错误和异常.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/courses/2016/12/python面向对象.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/org/2016/11/bjdx.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/org/2016/11/njdx.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/org/2016/11/qhdx-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/teacher/2016/11/aobama.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/teacher/2016/11/aobama_CXWwMef.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/organization/org-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/organization/org-list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/organization/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="350">
+              <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -39,11 +39,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/organization/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="25" column="14" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="14" />
+              <folding>
+                <element signature="e#26#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/organization/org-list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="107" column="14" lean-forward="true" selection-start-line="107" selection-start-column="14" selection-end-line="107" selection-end-column="14" />
+            <state relative-caret-position="-1405">
+              <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -111,12 +123,12 @@
         <option value="$PROJECT_DIR$/apps/organization/models.py" />
         <option value="$PROJECT_DIR$/EDonline/urls.py" />
         <option value="$PROJECT_DIR$/EDonline/settings.py" />
-        <option value="$PROJECT_DIR$/apps/organization/views.py" />
         <option value="$PROJECT_DIR$/templates/organization/org-list.html" />
+        <option value="$PROJECT_DIR$/apps/organization/views.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="601" />
     <option name="width" value="779" />
     <option name="height" value="731" />
@@ -234,12 +246,12 @@
       <workItem from="1591752897503" duration="16874000" />
       <workItem from="1591839838983" duration="15738000" />
       <workItem from="1591925581508" duration="13713000" />
-      <workItem from="1592184986524" duration="10307000" />
+      <workItem from="1592184986524" duration="16326000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56632000" />
+    <option name="totallyTimeSpent" value="62651000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -251,10 +263,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="601" y="0" width="779" height="731" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24200279" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13161875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -506,16 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/organization/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-          <folding>
-            <element signature="e#26#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EDonline/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -536,20 +538,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/organization/views.py">
+    <entry file="file://$PROJECT_DIR$/apps/organization/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="271">
+          <caret line="25" column="14" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="14" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#26#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/organization/org-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="107" column="14" lean-forward="true" selection-start-line="107" selection-start-column="14" selection-end-line="107" selection-end-column="14" />
+        <state relative-caret-position="-1405">
+          <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../demoOne/venv/Lib/site-packages/pure_pagination/paginator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1825">
+          <caret line="87" column="37" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/organization/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
