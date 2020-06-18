@@ -235,3 +235,9 @@ class ModifyPwdView(View):
         else:
             email = request.POST.get("email")
             return render(request, "users/password_reset.html", {"email":email, "modify_form":modify_form })
+
+
+class UserinfoView(View):
+    '''个人中心'''
+    def get(self,request):
+        return render(request,'usercenter/usercenter-info.html')

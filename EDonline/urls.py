@@ -26,7 +26,6 @@ urlpatterns = [
     re_path(r'^media/(?P<path>.*)', serve, {"document_root": MEDIA_ROOT}),
     path("org/", include('organization.urls', namespace="org")),
     path("course/", include('course.urls', namespace="course")),
-
-
+    path("users/", include('users.urls', namespace="users")),
 
 ]

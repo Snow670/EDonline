@@ -1,6 +1,7 @@
 from django.urls import path,re_path
 
 from organization.views import OrgView,AddUserAskView,OrgHomeView,OrgCourseView,OrgDescView,OrgTeacherView,AddFavView
+from organization.views import TeacherListView,TeacherDetailView
 
 app_name = 'organization'
 
@@ -12,4 +13,7 @@ urlpatterns = [
     re_path('desc/(?P<org_id>\d+)/', OrgDescView.as_view(), name="org_desc"),
     re_path('teacher/(?P<org_id>\d+)/', OrgTeacherView.as_view(), name="org_teacher"),
     path('add_fav/', AddFavView.as_view(), name="add_fav"),
+
+    path('teacher/list/', TeacherListView.as_view(), name="teacher_list"),
+    re_path('teacher/detail/(?P<teacher_id>\d+)/', TeacherDetailView.as_view(), name="teacher_detail"),
 ]

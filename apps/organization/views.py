@@ -177,6 +177,48 @@ class AddFavView(View):
                 return HttpResponse('{"status":"fail", "msg":"收藏出错"}')
 
 
+'''
+    Teacher 模块
+'''
+from .models import Teacher
+class TeacherListView(View):
+    def get(self,request):
+        all_teachers = Teacher.objects.all()
+        teacher_nums = all_teachers.count()
+        #人气排序
+        sort = request.GET.get("sort",'')
+        if sort:
+            if sort == 'hot':
+                all_teachers = Teacher.objects.order_by('-click_nums')
+        #讲师排行榜
+        sort_teachers = Teacher.objects.order_by('-click_nums')[:3]
+        #分页
+        try:
+            page = request.GET.get("page",1)
+        except PageNotAnInteger:
+            page = 1
+        p = Paginator(all_teachers,3,request=request)
+        teachers = p.page(page)
+        context = {
+            "all_teachers":teachers,
+            "teacher_nums":teacher_nums,
+            "sort":sort,
+            "sort_teachers":sort_teachers
+        }
+        return render(request,'teacher/teachers-list.html',context)
 
 
+from course.models import Course
+class TeacherDetailView(View):
+    def get(self,request,teacher_id):
+        teacher = Teacher.objects.get(id=int(teacher_id))
+        all_courses = Course.objects.filter(teacher=teacher)
+        # 讲师排行榜
+        sort_teachers = Teacher.objects.order_by('-click_nums')[:3]
+        context = {
+            "teacher":teacher,
+            "all_courses":all_courses,
+            "sort_teachers": sort_teachers
+        }
+        return render(request,'teacher/teacher-detail.html',context)
 
