@@ -76,6 +76,11 @@ class OrgHomeView(View):
     def get(self,request,org_id):
         current_page = 'home'
         course_org = CourseOrg.objects.get(id=int(org_id))
+        # 判断收藏状态
+        has_fav = False
+        if request.user.is_authenticated:
+            if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
+                has_fav = True
         # 反向查询到课程机构的所有课程和老师
         all_courses = course_org.course_set.all()[:4]
         all_teacher = course_org.teacher_set.all()[:2]
@@ -83,7 +88,8 @@ class OrgHomeView(View):
             "course_org":course_org,
             "all_courses":all_courses,
             "all_teacher":all_teacher,
-            "current_page":current_page
+            "current_page":current_page,
+            "has_fav":has_fav
         }
         return render(request,'organization/org-detail-homepage.html',context)
 
@@ -94,10 +100,16 @@ class OrgCourseView(View):
         current_page = 'couser'
         course_org = CourseOrg.objects.get(id=int(org_id))
         all_courses = course_org.course_set.all()
+        # 判断收藏状态
+        has_fav = False
+        if request.user.is_authenticated:
+            if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
+                has_fav = True
         context = {
             "all_courses":all_courses,
             "course_org":course_org,
-            "current_page": current_page
+            "current_page": current_page,
+            "has_fav": has_fav
         }
         return render(request,'organization/org-detail-course.html',context)
 
@@ -107,9 +119,15 @@ class OrgDescView(View):
     def get(self,request,org_id):
         current_page = 'desc'
         course_org = CourseOrg.objects.get(id=int(org_id))
+        # 判断收藏状态
+        has_fav = False
+        if request.user.is_authenticated:
+            if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
+                has_fav = True
         context = {
             "course_org": course_org,
-            "current_page": current_page
+            "current_page": current_page,
+            "has_fav": has_fav
         }
         return render(request,'organization/org-detail-desc.html',context)
 
@@ -120,16 +138,23 @@ class OrgTeacherView(View):
         current_page = 'teacher'
         course_org = CourseOrg.objects.get(id=int(org_id))
         all_teacher = course_org.teacher_set.all()
+        # 判断收藏状态
+        has_fav = False
+        if request.user.is_authenticated:
+            if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
+                has_fav = True
         context = {
             "course_org": course_org,
             "all_teacher":all_teacher,
-            "current_page": current_page
+            "current_page": current_page,
+            "has_fav": has_fav
         }
         return render(request,'organization/org-detail-teachers.html',context)
 
 
 from operation.models import UserFavorite
 class AddFavView(View):
+    '''收藏和取消收藏'''
     def post(self,request):
         id = request.POST.get('fav_id',0)
         type = request.POST.get("fav_type",0)
